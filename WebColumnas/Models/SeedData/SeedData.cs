@@ -106,7 +106,7 @@ public static class SeedData
                 new Marca { Nombre = "Nexera", ProveedorId = 3 }, // Shimadzu Corporation
                 new Marca { Nombre = "Vanquish", ProveedorId = 4 }, // Thermo Fisher Scientific
                 new Marca { Nombre = "Flexar", ProveedorId = 5 }, // PerkinElmer
-                new Marca { Nombre = "Chromaster", ProveedorId = 6 } // Hitachi High-Tech
+                new Marca { Nombre = "Chromaster", ProveedorId = 6 }, // Hitachi High-Tech
                 new Marca { Nombre = "1290 Infinity II LC", ProveedorId = 1 }, // Agilent Technologies
                 new Marca { Nombre = "ACQUITY Arc", ProveedorId = 2 }, // Waters Corporation
                 new Marca { Nombre = "Prominence", ProveedorId = 3 }, // Shimadzu Corporation

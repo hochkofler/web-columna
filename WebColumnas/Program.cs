@@ -21,7 +21,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
-    SeedData.Initialize(services, fasesMoviles1);
+    SeedData.Initialize(services);
 }
 
 // Configure the HTTP request pipeline.

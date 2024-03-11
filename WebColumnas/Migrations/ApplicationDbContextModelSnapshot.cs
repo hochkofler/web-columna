@@ -239,6 +239,80 @@ namespace WebColumnas.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("PrincipiosActivosProducto", b =>
+                {
+                    b.Property<int>("PrincipiosActivosId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PrincipiosActivosId", "ProductosId");
+
+                    b.HasIndex("ProductosId");
+
+                    b.ToTable("PrincipiosActivosProducto");
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.Analisis", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ColumnaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ColumnasColumnaId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Comentario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Flujo")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Ph")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Presion")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PresionFin")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PresionIni")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("PrincipiosActivosId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductosPrincipiosPrincipiosActivosId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductosPrincipiosProductoId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Temperatura")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<TimeOnly>("TiempoCorrida")
+                        .HasColumnType("time");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ColumnasColumnaId");
+
+                    b.HasIndex("ProductosPrincipiosProductoId", "ProductosPrincipiosPrincipiosActivosId");
+
+                    b.ToTable("Analisis");
+                });
+
             modelBuilder.Entity("WebColumnas.Models.Columna", b =>
                 {
                     b.Property<string>("ColumnaId")
@@ -298,6 +372,33 @@ namespace WebColumnas.Migrations
                     b.ToTable("FaseMovil");
                 });
 
+            modelBuilder.Entity("WebColumnas.Models.Lote", b =>
+                {
+                    b.Property<string>("LoteID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaEmision")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaVcto")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TamanoObjetivo")
+                        .HasColumnType("int");
+
+                    b.HasKey("LoteID");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("Lote");
+                });
+
             modelBuilder.Entity("WebColumnas.Models.Marca", b =>
                 {
                     b.Property<int>("Id")
@@ -318,6 +419,66 @@ namespace WebColumnas.Migrations
                     b.HasIndex("ProveedorId");
 
                     b.ToTable("Marca");
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.PrincipiosActivos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PrincipiosActivos");
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.Producto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Producto");
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.ProductosPrincipios", b =>
+                {
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PrincipiosActivosId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Concentracion")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("ProductoId", "PrincipiosActivosId");
+
+                    b.HasIndex("PrincipiosActivosId");
+
+                    b.ToTable("ProductosPrincipios");
                 });
 
             modelBuilder.Entity("WebColumnas.Models.Proveedor", b =>
@@ -403,6 +564,38 @@ namespace WebColumnas.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PrincipiosActivosProducto", b =>
+                {
+                    b.HasOne("WebColumnas.Models.PrincipiosActivos", null)
+                        .WithMany()
+                        .HasForeignKey("PrincipiosActivosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebColumnas.Models.Producto", null)
+                        .WithMany()
+                        .HasForeignKey("ProductosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.Analisis", b =>
+                {
+                    b.HasOne("WebColumnas.Models.Columna", "Columnas")
+                        .WithMany()
+                        .HasForeignKey("ColumnasColumnaId");
+
+                    b.HasOne("WebColumnas.Models.ProductosPrincipios", "ProductosPrincipios")
+                        .WithMany("Analisis")
+                        .HasForeignKey("ProductosPrincipiosProductoId", "ProductosPrincipiosPrincipiosActivosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Columnas");
+
+                    b.Navigation("ProductosPrincipios");
+                });
+
             modelBuilder.Entity("WebColumnas.Models.Columna", b =>
                 {
                     b.HasOne("WebColumnas.Models.Marca", "Marca")
@@ -412,6 +605,17 @@ namespace WebColumnas.Migrations
                         .IsRequired();
 
                     b.Navigation("Marca");
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.Lote", b =>
+                {
+                    b.HasOne("WebColumnas.Models.Producto", "Producto")
+                        .WithMany("Lotes")
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Producto");
                 });
 
             modelBuilder.Entity("WebColumnas.Models.Marca", b =>
@@ -425,9 +629,41 @@ namespace WebColumnas.Migrations
                     b.Navigation("Proveedor");
                 });
 
+            modelBuilder.Entity("WebColumnas.Models.ProductosPrincipios", b =>
+                {
+                    b.HasOne("WebColumnas.Models.PrincipiosActivos", null)
+                        .WithMany("ProductosPrincipios")
+                        .HasForeignKey("PrincipiosActivosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebColumnas.Models.Producto", null)
+                        .WithMany("ProductosPrincipios")
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("WebColumnas.Models.Marca", b =>
                 {
                     b.Navigation("Columnas");
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.PrincipiosActivos", b =>
+                {
+                    b.Navigation("ProductosPrincipios");
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.Producto", b =>
+                {
+                    b.Navigation("Lotes");
+
+                    b.Navigation("ProductosPrincipios");
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.ProductosPrincipios", b =>
+                {
+                    b.Navigation("Analisis");
                 });
 
             modelBuilder.Entity("WebColumnas.Models.Proveedor", b =>

@@ -24,5 +24,10 @@ namespace WebColumnas.Data
         }
         public DbSet<WebColumnas.Models.FaseMovil> FaseMovil { get; set; } = default!;
         public DbSet<WebColumnas.Models.Columna> Columna { get; set; } = default!;
+        public DbSet<WebColumnas.Models.Producto> Producto { get; set; } = default!;
+        public DbSet<WebColumnas.Models.PrincipiosActivos> PrincipiosActivos { get; set; } = default!;
+        public DbSet<WebColumnas.Models.ProductosPrincipios> ProductosPrincipios { get; set; } = default!;
+        public DbSet<WebColumnas.Models.Lote> Lote { get; set; } = default!;
+        public DbSet<WebColumnas.Models.Analisis> Analisis { get; set; } = default!;
     }
 }

@@ -17,127 +17,227 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebColumnas
 build_property.RootNamespace = WebColumnas
-build_property.ProjectDir = C:\Users\usuario\Documents\ASPNET\web-columnas\WebColumnas\
+build_property.ProjectDir = C:\Users\IFA\Desktop\Proyecto\web-columnas\WebColumnas\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\usuario\Documents\ASPNET\web-columnas\WebColumnas
+build_property.MSBuildProjectDirectory = C:\Users\IFA\Desktop\Proyecto\web-columnas\WebColumnas
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Columnas/Create.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Analisis/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbGlzaXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Analisis/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbGlzaXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Analisis/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbGlzaXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Analisis/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbGlzaXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Analisis/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbGlzaXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Columnas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sdW1uYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Columnas/Delete.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Columnas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sdW1uYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Columnas/Details.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Columnas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sdW1uYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Columnas/Edit.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Columnas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sdW1uYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Columnas/Index.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Columnas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sdW1uYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/FasesMoviles/Create.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/FasesMoviles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFzZXNNb3ZpbGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/FasesMoviles/Delete.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/FasesMoviles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFzZXNNb3ZpbGVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/FasesMoviles/Details.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/FasesMoviles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFzZXNNb3ZpbGVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/FasesMoviles/Edit.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/FasesMoviles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFzZXNNb3ZpbGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/FasesMoviles/Index.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/FasesMoviles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFzZXNNb3ZpbGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Home/Index.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Home/Privacy.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Marcas/Create.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Lotes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG90ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Lotes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG90ZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Lotes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG90ZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Lotes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG90ZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Lotes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG90ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Marcas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Marcas/Delete.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Marcas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Marcas/Details.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Marcas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Marcas/Edit.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Marcas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Marcas/Index.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Marcas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Proveedores/Create.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/PrincipiosActivos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpbmNpcGlvc0FjdGl2b3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/PrincipiosActivos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpbmNpcGlvc0FjdGl2b3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/PrincipiosActivos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpbmNpcGlvc0FjdGl2b3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/PrincipiosActivos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpbmNpcGlvc0FjdGl2b3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/PrincipiosActivos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpbmNpcGlvc0FjdGl2b3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/ProductosPrincipios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zUHJpbmNpcGlvc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/ProductosPrincipios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zUHJpbmNpcGlvc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/ProductosPrincipios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zUHJpbmNpcGlvc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/ProductosPrincipios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zUHJpbmNpcGlvc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/ProductosPrincipios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zUHJpbmNpcGlvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Productos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Productos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Productos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Productos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Productos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Proveedores/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Proveedores/Delete.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Proveedores/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Proveedores/Details.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Proveedores/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Proveedores/Edit.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Proveedores/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Proveedores/Index.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Proveedores/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Shared/Error.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/_ViewImports.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/_ViewStart.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/usuario/Documents/ASPNET/web-columnas/WebColumnas/Views/Shared/_Layout.cshtml]
+[C:/Users/IFA/Desktop/Proyecto/web-columnas/WebColumnas/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-gn5ol5g3zj

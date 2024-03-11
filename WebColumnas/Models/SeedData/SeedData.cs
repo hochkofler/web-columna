@@ -4,10 +4,10 @@ using WebColumnas.Models;
 
 public static class SeedData
 {
-    public static List<Columna> GenerateColumnaSeedData(out List<FaseMovil> fasesMovilesSeedData)
+    public static List<Columna> GenerateColumnaSeedData(List<FaseMovil> fasesMovilesSeedData)
     {
         List<Columna> seedData = new List<Columna>();
-        fasesMovilesSeedData = GenerateFasesMovilesSeedData();
+        //fasesMovilesSeedData = GenerateFasesMovilesSeedData();
 
         // Ejemplos de fases estacionarias típicas de HPLC
         string[] fasesEstacionarias = { "C18", "C8", "C4", "Phenyl", "Cyano", "Amino", "Diol" };
@@ -75,13 +75,13 @@ public static class SeedData
         return fasesMovilesSeedData;
     }
 
-    public static void Initialize(IServiceProvider serviceProvider)
+    public static void Initialize(IServiceProvider serviceProvider, Task<List<FaseMovil>> fasesMoviles1)
     {
         using (var context = new ApplicationDbContext(
            serviceProvider.GetRequiredService<
                DbContextOptions<ApplicationDbContext>>()))
         {
-            if (context.Proveedor.Any())
+            if (!context.Proveedor.Any())
             {
                 var proveedores = new Proveedor[]
                 {
@@ -97,7 +97,7 @@ public static class SeedData
                 context.SaveChanges();
             }
 
-            if (context.Marca.Any())
+            if (!context.Marca.Any())
             {
                 var marcas = new Marca[]
                 {
@@ -125,10 +125,18 @@ public static class SeedData
                 context.SaveChanges();
             }
 
-            if (context.FaseMovil.Any())
+            if (!context.FaseMovil.Any())
             {
                 var fasesMoviles = GenerateFasesMovilesSeedData();
                 context.FaseMovil.AddRange(fasesMoviles);
+                context.SaveChanges();
+            }
+
+            if (!context.Columna.Any())
+            {
+                var fasesMoviles = context.FaseMovil.ToList();
+                var columnas = GenerateColumnaSeedData(fasesMoviles);
+                context.Columna.AddRange(columnas);
                 context.SaveChanges();
             }
         }

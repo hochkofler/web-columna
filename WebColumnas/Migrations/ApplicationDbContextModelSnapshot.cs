@@ -3,20 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebColumnas.Data;
 
 #nullable disable
 
-namespace WebColumnas.Data.Migrations
+namespace WebColumnas.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240310035841_InitialCreate3")]
-    partial class InitialCreate3
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,6 +21,21 @@ namespace WebColumnas.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("ColumnaFaseMovil", b =>
+                {
+                    b.Property<string>("ColumnasColumnaId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("FasesMovilesFaseMovilID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ColumnasColumnaId", "FasesMovilesFaseMovilID");
+
+                    b.HasIndex("FasesMovilesFaseMovilID");
+
+                    b.ToTable("ColumnaFaseMovil");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -227,6 +239,65 @@ namespace WebColumnas.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("WebColumnas.Models.Columna", b =>
+                {
+                    b.Property<string>("ColumnaId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Clase")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Dimension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FaseEstacionaria")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaEnMarcha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaIngreso")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MarcaId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PhMax")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PhMin")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PresionMax")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("ColumnaId");
+
+                    b.HasIndex("MarcaId");
+
+                    b.ToTable("Columna");
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.FaseMovil", b =>
+                {
+                    b.Property<int>("FaseMovilID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FaseMovilID"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FaseMovilID");
+
+                    b.ToTable("FaseMovil");
+                });
+
             modelBuilder.Entity("WebColumnas.Models.Marca", b =>
                 {
                     b.Property<int>("Id")
@@ -264,6 +335,21 @@ namespace WebColumnas.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Proveedor");
+                });
+
+            modelBuilder.Entity("ColumnaFaseMovil", b =>
+                {
+                    b.HasOne("WebColumnas.Models.Columna", null)
+                        .WithMany()
+                        .HasForeignKey("ColumnasColumnaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebColumnas.Models.FaseMovil", null)
+                        .WithMany()
+                        .HasForeignKey("FasesMovilesFaseMovilID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -317,6 +403,17 @@ namespace WebColumnas.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("WebColumnas.Models.Columna", b =>
+                {
+                    b.HasOne("WebColumnas.Models.Marca", "Marca")
+                        .WithMany("Columnas")
+                        .HasForeignKey("MarcaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Marca");
+                });
+
             modelBuilder.Entity("WebColumnas.Models.Marca", b =>
                 {
                     b.HasOne("WebColumnas.Models.Proveedor", "Proveedor")
@@ -326,6 +423,11 @@ namespace WebColumnas.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Proveedor");
+                });
+
+            modelBuilder.Entity("WebColumnas.Models.Marca", b =>
+                {
+                    b.Navigation("Columnas");
                 });
 
             modelBuilder.Entity("WebColumnas.Models.Proveedor", b =>

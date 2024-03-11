@@ -75,7 +75,7 @@ public static class SeedData
         return fasesMovilesSeedData;
     }
 
-    public static void Initialize(IServiceProvider serviceProvider, Task<List<FaseMovil>> fasesMoviles1)
+    public static void Initialize(IServiceProvider serviceProvider)
     {
         using (var context = new ApplicationDbContext(
            serviceProvider.GetRequiredService<

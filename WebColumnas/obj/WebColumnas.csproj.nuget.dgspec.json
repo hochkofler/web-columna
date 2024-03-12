@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\WebColumnas.csproj": {}
+    "C:\\Cursos\\Aspnet\\WebColumnas\\web-columnas\\WebColumnas\\WebColumnas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\WebColumnas.csproj": {
+    "C:\\Cursos\\Aspnet\\WebColumnas\\web-columnas\\WebColumnas\\WebColumnas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\WebColumnas.csproj",
+        "projectUniqueName": "C:\\Cursos\\Aspnet\\WebColumnas\\web-columnas\\WebColumnas\\WebColumnas.csproj",
         "projectName": "WebColumnas",
-        "projectPath": "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\WebColumnas.csproj",
-        "packagesPath": "C:\\Users\\IFA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\obj\\",
+        "projectPath": "C:\\Cursos\\Aspnet\\WebColumnas\\web-columnas\\WebColumnas\\WebColumnas.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Cursos\\Aspnet\\WebColumnas\\web-columnas\\WebColumnas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\IFA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -55,15 +50,19 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[8.0.2, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[8.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -99,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

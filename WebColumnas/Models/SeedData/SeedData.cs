@@ -139,6 +139,54 @@ public static class SeedData
                 context.Columna.AddRange(columnas);
                 context.SaveChanges();
             }
+
+            if (!context.PrincipiosActivos.Any())
+            {
+                var principiosActivos = new PrincipiosActivos[]
+                {
+                    new PrincipiosActivos { Nombre = "Paracetamol" },
+                    new PrincipiosActivos { Nombre = "Ibuprofeno" },
+                    new PrincipiosActivos { Nombre = "Omeprazol" },
+                    new PrincipiosActivos { Nombre = "Loratadina" },
+                    new PrincipiosActivos { Nombre = "Amoxicilina" }
+                };
+                context.PrincipiosActivos.AddRange(principiosActivos);
+                context.SaveChanges();
+            }
+
+            if (!context.Producto.Any())
+            {
+                var principiosActivos = context.PrincipiosActivos.ToList();
+                var productos = new Producto[]
+                {                
+                    new Producto { Nombre = "Panadol", Tipo = "PT", Registro = "123456", PrincipiosActivos = principiosActivos.Where(pa => pa.Nombre == "Paracetamol").ToList() },
+                    new Producto { Nombre = "Nurofen", Tipo = "PT", Registro = "789012", PrincipiosActivos = principiosActivos.Where(pa => pa.Nombre == "Ibuprofeno").ToList() },
+                    new Producto { Nombre = "Prilosec", Tipo = "PT", Registro = "345678", PrincipiosActivos = principiosActivos.Where(pa => pa.Nombre == "Omeprazol").ToList() },
+                    new Producto { Nombre = "Claritin", Tipo = "PT", Registro = "901234", PrincipiosActivos = principiosActivos.Where(pa => pa.Nombre == "Loratadina").ToList() },
+                    new Producto { Nombre = "Amoxil", Tipo = "PT", Registro = "567890", PrincipiosActivos = principiosActivos.Where(pa => pa.Nombre == "Amoxicilina").ToList() },
+                    new Producto { Nombre = "Panadol Plus", Tipo = "Tableta", Registro = "123456", PrincipiosActivos = principiosActivos.Where(pa => pa.Nombre == "Paracetamol" || pa.Nombre == "Ibuprofeno").ToList() },
+                    new Producto { Nombre = "Clarixen", Tipo = "Jarabe", Registro = "789012", PrincipiosActivos = principiosActivos.Where(pa => pa.Nombre == "Loratadina" || pa.Nombre == "Ibuprofeno").ToList() },
+                    new Producto { Nombre = "Amoxifin", Tipo = "Cápsula", Registro = "345678", PrincipiosActivos = principiosActivos.Where(pa => pa.Nombre == "Amoxicilina" || pa.Nombre == "Omeprazol").ToList() }
+                 };
+                context.Producto.AddRange(productos);
+                context.SaveChanges();
+            }
+
+            if (!context.Lote.Any())
+            {
+                var productos = context.Producto.ToList();
+                var lotes = new Lote[]
+{
+                    new Lote { LoteID = "ABC123", FechaCreacion = DateTime.Now, FechaEmision = DateTime.Now, FechaVcto = DateTime.Now.AddYears(1), TamanoObjetivo = 100, ProductoId = 1 },
+                    new Lote { LoteID = "DEF456", FechaCreacion = DateTime.Now, FechaEmision = DateTime.Now, FechaVcto = DateTime.Now.AddYears(1), TamanoObjetivo = 150, ProductoId = 1 },
+                    new Lote { LoteID = "GHI789", FechaCreacion = DateTime.Now, FechaEmision = DateTime.Now, FechaVcto = DateTime.Now.AddYears(1), TamanoObjetivo = 200, ProductoId = 2 },
+                    new Lote { LoteID = "JKL012", FechaCreacion = DateTime.Now, FechaEmision = DateTime.Now, FechaVcto = DateTime.Now.AddYears(1), TamanoObjetivo = 120, ProductoId = 2 },
+                    new Lote { LoteID = "MNO345", FechaCreacion = DateTime.Now, FechaEmision = DateTime.Now, FechaVcto = DateTime.Now.AddYears(1), TamanoObjetivo = 180, ProductoId = 4 }
+                };
+                context.Lote.AddRange(lotes);
+                context.SaveChanges();
+            }
+
         }
             
     }

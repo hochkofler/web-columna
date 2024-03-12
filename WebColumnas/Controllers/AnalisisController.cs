@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,7 +23,8 @@ namespace WebColumnas.Controllers
         // GET: Analisis
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Analisis.ToListAsync());
+            var applicationDbContext = _context.Analisis.Include(a => a.Lote);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Analisis/Details/5
@@ -34,6 +36,7 @@ namespace WebColumnas.Controllers
             }
 
             var analisis = await _context.Analisis
+                .Include(a => a.Lote)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (analisis == null)
             {
@@ -46,7 +49,26 @@ namespace WebColumnas.Controllers
         // GET: Analisis/Create
         public IActionResult Create()
         {
+            ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID");
+            ViewData["Principios"] = new MultiSelectList(_context.Lote.Include(a => a.Producto).ThenInclude(a => a.PrincipiosActivos), "Id", "Id");
+
             return View();
+        }
+
+        public IActionResult GetPrincipios(string loteId) //id del producto
+        {
+            var lote = _context.Lote.Find(loteId);
+            if (lote == null)
+            {
+                return NotFound();
+            }
+            else
+                return Json(_context.ProductosPrincipios.Where(a => a.ProductoId == lote.ProductoId)
+                                            .Select(a => new {
+                                                a.PrincipiosActivos.Id,
+                                                a.PrincipiosActivos.Nombre
+                                            })
+                                            .ToList());
         }
 
         // POST: Analisis/Create
@@ -54,7 +76,7 @@ namespace WebColumnas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Ph,Presion,TiempoCorrida,Flujo,Temperatura,PresionIni,PresionFin,Comentario,ProductoId,PrincipiosActivosId,ColumnaId")] Analisis analisis)
+        public async Task<IActionResult> Create([Bind("Id,Ph,Presion,TiempoCorrida,Flujo,Temperatura,PresionIni,PresionFin,Comentario,LoteId,ColumnaId")] Analisis analisis)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +84,7 @@ namespace WebColumnas.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID", analisis.LoteId);
             return View(analisis);
         }
 
@@ -78,6 +101,7 @@ namespace WebColumnas.Controllers
             {
                 return NotFound();
             }
+            ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID", analisis.LoteId);
             return View(analisis);
         }
 
@@ -86,7 +110,7 @@ namespace WebColumnas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Ph,Presion,TiempoCorrida,Flujo,Temperatura,PresionIni,PresionFin,Comentario,ProductoId,PrincipiosActivosId,ColumnaId")] Analisis analisis)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Ph,Presion,TiempoCorrida,Flujo,Temperatura,PresionIni,PresionFin,Comentario,LoteId,ColumnaId")] Analisis analisis)
         {
             if (id != analisis.Id)
             {
@@ -113,6 +137,7 @@ namespace WebColumnas.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID", analisis.LoteId);
             return View(analisis);
         }
 
@@ -125,6 +150,7 @@ namespace WebColumnas.Controllers
             }
 
             var analisis = await _context.Analisis
+                .Include(a => a.Lote)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (analisis == null)
             {

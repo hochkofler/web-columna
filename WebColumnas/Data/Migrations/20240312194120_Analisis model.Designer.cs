@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebColumnas.Data;
 
@@ -11,9 +12,11 @@ using WebColumnas.Data;
 namespace WebColumnas.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240312194120_Analisis model")]
+    partial class Analisismodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -421,16 +424,11 @@ namespace WebColumnas.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AnalisisId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AnalisisId");
 
                     b.ToTable("PrincipiosActivos");
                 });
@@ -582,7 +580,7 @@ namespace WebColumnas.Migrations
                         .WithMany("Analisis")
                         .HasForeignKey("ColumnasColumnaId");
 
-                    b.HasOne("WebColumnas.Models.Lote", "Lote")
+                    b.HasOne("WebColumnas.Models.Lote", "lote")
                         .WithMany()
                         .HasForeignKey("LoteId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -590,7 +588,7 @@ namespace WebColumnas.Migrations
 
                     b.Navigation("Columnas");
 
-                    b.Navigation("Lote");
+                    b.Navigation("lote");
                 });
 
             modelBuilder.Entity("WebColumnas.Models.Columna", b =>
@@ -626,16 +624,9 @@ namespace WebColumnas.Migrations
                     b.Navigation("Proveedor");
                 });
 
-            modelBuilder.Entity("WebColumnas.Models.PrincipiosActivos", b =>
-                {
-                    b.HasOne("WebColumnas.Models.Analisis", null)
-                        .WithMany("PrincipiosActivos")
-                        .HasForeignKey("AnalisisId");
-                });
-
             modelBuilder.Entity("WebColumnas.Models.ProductosPrincipios", b =>
                 {
-                    b.HasOne("WebColumnas.Models.PrincipiosActivos", "PrincipiosActivos")
+                    b.HasOne("WebColumnas.Models.PrincipiosActivos", null)
                         .WithMany("ProductosPrincipios")
                         .HasForeignKey("PrincipiosActivosId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -646,13 +637,6 @@ namespace WebColumnas.Migrations
                         .HasForeignKey("ProductoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("PrincipiosActivos");
-                });
-
-            modelBuilder.Entity("WebColumnas.Models.Analisis", b =>
-                {
-                    b.Navigation("PrincipiosActivos");
                 });
 
             modelBuilder.Entity("WebColumnas.Models.Columna", b =>

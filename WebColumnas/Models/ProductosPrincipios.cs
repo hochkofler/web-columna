@@ -7,7 +7,8 @@ namespace WebColumnas.Models
     {        
         public int ProductoId { get; set; }        
         public int PrincipiosActivosId { get; set; }
-        public decimal Concentracion { get; set; }        
-        public ICollection<Analisis> Analisis { get; } = new List<Analisis>();
+        public decimal Concentracion { get; set; }    
+        public PrincipiosActivos PrincipiosActivos { get; set; }
+        //public ICollection<Analisis> Analisis { get; } = new List<Analisis>();
     }
 }

@@ -11,12 +11,10 @@
         public decimal PresionIni { get; set; }
         public decimal PresionFin { get; set; }
         public string? Comentario { get; set; }
-
-        public int ProductoId { get; set; }
-        public int PrincipiosActivosId { get; set; }
-        public required ProductosPrincipios ProductosPrincipios { get; set; }
+        public List<PrincipiosActivos> PrincipiosActivos { get; set; }
+        public string LoteId { get; set; }
+        public Lote Lote { get; set; }
         public int ColumnaId { get; set; }
         public Columna? Columnas { get; set; }
-
     }
 }

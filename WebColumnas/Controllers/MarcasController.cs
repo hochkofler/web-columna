@@ -48,7 +48,7 @@ namespace WebColumnas.Controllers
         // GET: Marcas/Create
         public IActionResult Create()
         {
-            ViewData["ProveedorId"] = new SelectList(_context.Proveedor, "Id", "Id");
+            ViewData["ProveedorId"] = new SelectList(_context.Proveedor, "Id", "Nombre");
             return View();
         }
 

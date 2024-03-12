@@ -18,8 +18,10 @@
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProveedorId" class="control-label"></label>
-                <select asp-for="ProveedorId" class ="form-control" asp-items="ViewBag.ProveedorId"></select>
+                <label asp-for="Proveedor" class="control-label"></label>
+                <select asp-for="ProveedorId" class ="form-control" asp-items="ViewBag.ProveedorId">
+                    <option value="">Seleccionar proveedor...</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

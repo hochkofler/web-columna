@@ -80,7 +80,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers().RequireAuthorization();
+//app.MapControllers().RequireAuthorization();
 
 app.MapControllerRoute(
     name: "default",

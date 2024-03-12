@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebColumnas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c34639f4f90ac8f0c1006d19cfb4b2e7bedeb63")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5fcd06d2b0859e7c7c1628e916adaecf785f86a")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebColumnas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebColumnas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

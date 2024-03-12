@@ -43,6 +43,7 @@ namespace WebColumnas.Models
         public required int MarcaId { get; set; }
         public Marca? Marca { get; set; }
         public List<FaseMovil>? FasesMoviles{ get; set; }
+        public ICollection<Analisis> Analisis { get; set; } = new List<Analisis>();
 
     }
 }

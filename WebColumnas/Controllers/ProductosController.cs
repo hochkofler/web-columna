@@ -46,6 +46,7 @@ namespace WebColumnas.Controllers
         // GET: Productos/Create
         public IActionResult Create()
         {
+            //ViewData["PrincipiosActivosId"] = new SelectList(_context.PrincipiosActivos, "Id", "Nombre");
             return View();
         }
 

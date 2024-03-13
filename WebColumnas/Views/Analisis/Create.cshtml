@@ -15,12 +15,15 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="LoteId" class="control-label"></label>
-                <select asp-for="LoteId" class="form-control" asp-items="ViewBag.LoteId"></select>
+                <select asp-for="LoteId" class="form-control" asp-items="ViewBag.Lotes")>
+                    <option value="">Seleccione un lote</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="PrincipiosActivos" class="control-label"></label>
                 <br />
-                <select asp-for="PrincipiosActivos" class="form-control" asp-items="ViewBag.LoteId">
+                <select asp-for="PrincipiosActivos" class="form-control" asp-items="new MultiSelectList(ViewBag.Principios)">
+                    <option value="">Seleccione un principio</option>
                 </select>
             </div>
             <div class="form-group">
@@ -82,13 +85,24 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
-        $("#LoteId").change(function () {
-            $.get("/Analisis/GetMember", { id: $("#TeamId").val() }, function (data) {
-                $("#MemberId").empty();
-                $.each(data, function (index, row) {
-                    $("#MemberId").append("<option value='" + row.memberId + "'>" + row.name + "</option>")
+        $(document).ready(function () {
+            $('#LoteId').change(function () {
+                var loteId = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("ObtenerPrincipiosPorLote", "Analisis")',
+                    type: 'POST',
+                    data: { loteId: loteId },
+                    success: function (principios) {
+                        $('#PrincipiosActivos').empty();
+                        $.each(principios, function (index, principio) {
+                            $('#PrincipiosActivos').append($('<option>', {
+                                value: principio.id,
+                                text: principio.nombre
+                            }));
+                        });
+                    }
                 });
             });
-        })
+        });
     </script>
 }

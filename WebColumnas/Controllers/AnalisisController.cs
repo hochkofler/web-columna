@@ -49,26 +49,31 @@ namespace WebColumnas.Controllers
         // GET: Analisis/Create
         public IActionResult Create()
         {
-            ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID");
-            ViewData["Principios"] = new MultiSelectList(_context.Lote.Include(a => a.Producto).ThenInclude(a => a.PrincipiosActivos), "Id", "Id");
+            ViewData["Lotes"] = new SelectList(_context.Lote, "LoteID", "LoteID");
+            ViewData["Principios"] = new List<PrincipiosActivos>();
+            //ViewData["Principios"] = new MultiSelectList(_context.Lote.Include(a => a.Producto).ThenInclude(a => a.PrincipiosActivos).ToList(), "Id", "Id");
 
             return View();
         }
 
-        public IActionResult GetPrincipios(string loteId) //id del producto
+        [HttpPost]
+        public IActionResult ObtenerPrincipiosPorLote(string loteId) //id del producto
         {
-            var lote = _context.Lote.Find(loteId);
+            var lote= _context.Lote.Find(loteId);
+            
             if (lote == null)
             {
-                return NotFound();
+                 return Json(new List<PrincipiosActivos>());
+                //return Json(new List<PrincipiosActivos>());
             }
-            else
-                return Json(_context.ProductosPrincipios.Where(a => a.ProductoId == lote.ProductoId)
-                                            .Select(a => new {
-                                                a.PrincipiosActivos.Id,
-                                                a.PrincipiosActivos.Nombre
-                                            })
-                                            .ToList());
+            return Json(_context.PrincipiosActivos.Include(p => p.Productos).Where(p => p.Id == lote.ProductoId)
+                .Select(
+                a => new
+                {
+                    a.Id,
+                    a.Nombre
+                })
+                .ToList());
         }
 
         // POST: Analisis/Create

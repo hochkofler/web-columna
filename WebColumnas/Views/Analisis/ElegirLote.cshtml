@@ -1,0 +1,13 @@
+﻿@model List<Lote>
+
+@using (Html.BeginForm())
+{
+    <h2>Elegir Lote</h2>
+    <select name="idLote">
+        @foreach (var lote in Model)
+        {
+            <option value="@lote.LoteID">@lote.LoteID</option>
+        }
+    </select>
+    <button type="submit">Continuar</button>
+}

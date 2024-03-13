@@ -46,65 +46,30 @@ namespace WebColumnas.Controllers
             return View(analisis);
         }
 
-        // GET: Analisis/Create
-        public IActionResult Create()
-        {           
-                ViewData["Lotes"] = new SelectList(_context.Lote, "LoteID", "LoteID");
-                return View();
-            
-            //ViewData["Lotes"] = new SelectList(_context.Lote, "LoteID", "LoteID");
-            //ViewData["Principios"] = new List<PrincipiosActivos>();
-            //ViewData["Principios"] = new MultiSelectList(_context.Lote.Include(a => a.Producto).ThenInclude(a => a.PrincipiosActivos).ToList(), "Id", "Id");
-           
-        }
-        [HttpPost]
-        public IActionResult Create(string? IdLote)
+        // GET: Analisis/ElegirLote
+        public IActionResult ElegirLote()
         {
-            return RedirectToAction("CreateA", new { idLote = IdLote });
-
-            //ViewData["Lotes"] = new SelectList(_context.Lote, "LoteID", "LoteID");
-            //ViewData["Principios"] = new List<PrincipiosActivos>();
-            //ViewData["Principios"] = new MultiSelectList(_context.Lote.Include(a => a.Producto).ThenInclude(a => a.PrincipiosActivos).ToList(), "Id", "Id");
-
-
+            var lotes = _context.Lote.ToList();
+            return View(lotes);
         }
 
+        // POST: Analisis/ElegirLote
         [HttpPost]
-        public IActionResult ObtenerPrincipiosPorLote(string loteId) //id del producto
+        public IActionResult ElegirLote(string idLote)
         {
-            var lote= _context.Lote.Find(loteId);
-            
-            if (lote == null)
-            {
-                 return Json(new List<PrincipiosActivos>());
-                //return Json(new List<PrincipiosActivos>());
-            }
-            return Json(_context.PrincipiosActivos.Include(p => p.Productos).Where(p => p.Id == lote.ProductoId)
-                .Select(
-                a => new
-                {
-                    a.Id,
-                    a.Nombre
-                })
-                .ToList());
+            return RedirectToAction("Create", "Analisis", new { id = idLote });
         }
 
-        // POST: Analisis/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        
-
-        // GET: Analisis/CreateA/5
-        public IActionResult CreateA(string idLote)
-        {          
-
-            var lote = _context.Lote.FirstOrDefault(l => l.LoteID == idLote);
+        // GET: Analisis/Create/5
+        public IActionResult Create(string id)
+        {
+            var lote = _context.Lote.FirstOrDefault(l => l.LoteID == id);
             if (lote == null)
             {
                 return NotFound();
             }
-            //ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID", analisis.LoteId);
-            return View(lote);
+            var analisis = new Analisis { LoteId = id };
+            return View(analisis);
         }
 
         // GET: Analisis/Edit/5

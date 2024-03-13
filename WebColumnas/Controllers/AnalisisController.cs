@@ -48,12 +48,25 @@ namespace WebColumnas.Controllers
 
         // GET: Analisis/Create
         public IActionResult Create()
+        {           
+                ViewData["Lotes"] = new SelectList(_context.Lote, "LoteID", "LoteID");
+                return View();
+            
+            //ViewData["Lotes"] = new SelectList(_context.Lote, "LoteID", "LoteID");
+            //ViewData["Principios"] = new List<PrincipiosActivos>();
+            //ViewData["Principios"] = new MultiSelectList(_context.Lote.Include(a => a.Producto).ThenInclude(a => a.PrincipiosActivos).ToList(), "Id", "Id");
+           
+        }
+        [HttpPost]
+        public IActionResult Create(string? IdLote)
         {
-            ViewData["Lotes"] = new SelectList(_context.Lote, "LoteID", "LoteID");
-            ViewData["Principios"] = new List<PrincipiosActivos>();
+            return RedirectToAction("CreateA", new { idLote = IdLote });
+
+            //ViewData["Lotes"] = new SelectList(_context.Lote, "LoteID", "LoteID");
+            //ViewData["Principios"] = new List<PrincipiosActivos>();
             //ViewData["Principios"] = new MultiSelectList(_context.Lote.Include(a => a.Producto).ThenInclude(a => a.PrincipiosActivos).ToList(), "Id", "Id");
 
-            return View();
+
         }
 
         [HttpPost]
@@ -79,18 +92,19 @@ namespace WebColumnas.Controllers
         // POST: Analisis/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Ph,Presion,TiempoCorrida,Flujo,Temperatura,PresionIni,PresionFin,Comentario,LoteId,ColumnaId")] Analisis analisis)
-        {
-            if (ModelState.IsValid)
+        
+
+        // GET: Analisis/CreateA/5
+        public IActionResult CreateA(string idLote)
+        {          
+
+            var lote = _context.Lote.FirstOrDefault(l => l.LoteID == idLote);
+            if (lote == null)
             {
-                _context.Add(analisis);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID", analisis.LoteId);
-            return View(analisis);
+            //ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID", analisis.LoteId);
+            return View(lote);
         }
 
         // GET: Analisis/Edit/5

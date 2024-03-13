@@ -1,79 +1,28 @@
-﻿@model WebColumnas.Models.Analisis
+﻿@model WebColumnas.Models.Lote
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Seleccionar Lote</h1>
 
 <h4>Analisis</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="CreateA" asp-route-id="@Model.LoteID" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="LoteId" class="control-label"></label>
-                <select asp-for="LoteId" class="form-control" asp-items="ViewBag.Lotes")>
+                <label asp-for="LoteID" class="control-label"></label>
+                <select asp-for="LoteID" class="form-control" asp-items="ViewBag.Lotes")>
                     <option value="">Seleccione un lote</option>
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="PrincipiosActivos" class="control-label"></label>
-                <br />
-                <select asp-for="PrincipiosActivos" class="form-control" asp-items="new MultiSelectList(ViewBag.Principios)">
-                    <option value="">Seleccione un principio</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ph" class="control-label"></label>
-                <input asp-for="Ph" class="form-control" />
-                <span asp-validation-for="Ph" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Presion" class="control-label"></label>
-                <input asp-for="Presion" class="form-control" />
-                <span asp-validation-for="Presion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TiempoCorrida" class="control-label"></label>
-                <input asp-for="TiempoCorrida" class="form-control" />
-                <span asp-validation-for="TiempoCorrida" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Flujo" class="control-label"></label>
-                <input asp-for="Flujo" class="form-control" />
-                <span asp-validation-for="Flujo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Temperatura" class="control-label"></label>
-                <input asp-for="Temperatura" class="form-control" />
-                <span asp-validation-for="Temperatura" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PresionIni" class="control-label"></label>
-                <input asp-for="PresionIni" class="form-control" />
-                <span asp-validation-for="PresionIni" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PresionFin" class="control-label"></label>
-                <input asp-for="PresionFin" class="form-control" />
-                <span asp-validation-for="PresionFin" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Comentario" class="control-label"></label>
-                <input asp-for="Comentario" class="form-control" />
-                <span asp-validation-for="Comentario" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ColumnaId" class="control-label"></label>
-                <input asp-for="ColumnaId" class="form-control" />
-                <span asp-validation-for="ColumnaId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+                <input type="submit" value="Seleccionar" class="btn btn-primary" />
+               
+            </div>            
         </form>
     </div>
 </div>
@@ -84,25 +33,4 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>
-        $(document).ready(function () {
-            $('#LoteId').change(function () {
-                var loteId = $(this).val();
-                $.ajax({
-                    url: '@Url.Action("ObtenerPrincipiosPorLote", "Analisis")',
-                    type: 'POST',
-                    data: { loteId: loteId },
-                    success: function (principios) {
-                        $('#PrincipiosActivos').empty();
-                        $.each(principios, function (index, principio) {
-                            $('#PrincipiosActivos').append($('<option>', {
-                                value: principio.id,
-                                text: principio.nombre
-                            }));
-                        });
-                    }
-                });
-            });
-        });
-    </script>
 }

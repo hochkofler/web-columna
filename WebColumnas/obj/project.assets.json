@@ -9091,19 +9091,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\IFA\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Cursos\\Aspnet\\WebColumnas\\web-columnas\\WebColumnas\\WebColumnas.csproj",
+      "projectUniqueName": "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\WebColumnas.csproj",
       "projectName": "WebColumnas",
-      "projectPath": "C:\\Cursos\\Aspnet\\WebColumnas\\web-columnas\\WebColumnas\\WebColumnas.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Cursos\\Aspnet\\WebColumnas\\web-columnas\\WebColumnas\\obj\\",
+      "projectPath": "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\WebColumnas.csproj",
+      "packagesPath": "C:\\Users\\IFA\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\IFA\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9123,6 +9123,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -9191,7 +9196,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

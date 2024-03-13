@@ -176,7 +176,7 @@ public static class SeedData
             {
                 var productos = context.Producto.ToList();
                 var lotes = new Lote[]
-{
+                {
                     new Lote { LoteID = "ABC123", FechaCreacion = DateTime.Now, FechaEmision = DateTime.Now, FechaVcto = DateTime.Now.AddYears(1), TamanoObjetivo = 100, ProductoId = 1 },
                     new Lote { LoteID = "DEF456", FechaCreacion = DateTime.Now, FechaEmision = DateTime.Now, FechaVcto = DateTime.Now.AddYears(1), TamanoObjetivo = 150, ProductoId = 1 },
                     new Lote { LoteID = "GHI789", FechaCreacion = DateTime.Now, FechaEmision = DateTime.Now, FechaVcto = DateTime.Now.AddYears(1), TamanoObjetivo = 200, ProductoId = 2 },

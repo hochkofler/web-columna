@@ -69,6 +69,28 @@ namespace WebColumnas.Controllers
                 return NotFound();
             }
             var analisis = new Analisis { LoteId = id };
+            ViewData["Principios"] = new MultiSelectList(ObtenerPrincipiosPorLote(id), "Id", "Nombre");
+            return View(analisis);
+        }
+
+        // POST: Analisis1/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id, Ph,Presion,TiempoCorrida,Flujo,Temperatura,PresionIni,PresionFin,Comentario,LoteId,ColumnaId")] Analisis analisis)
+        {
+            Console.WriteLine(analisis.LoteId);
+            Console.WriteLine(analisis.PrincipiosActivos);
+            if (ModelState.IsValid)
+            {
+                _context.Add(analisis);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["ColumnaId"] = new SelectList(_context.Columna, "ColumnaId", "ColumnaId", analisis.ColumnaId);
+            ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID", analisis.LoteId);
+            ViewData["Principios"] = new MultiSelectList(ObtenerPrincipiosPorLote(analisis.LoteId), "Id", "Nombre",analisis.PrincipiosActivos);
             return View(analisis);
         }
 
@@ -162,6 +184,20 @@ namespace WebColumnas.Controllers
         private bool AnalisisExists(int id)
         {
             return _context.Analisis.Any(e => e.Id == id);
+        }
+
+        
+        public List<PrincipiosActivos> ObtenerPrincipiosPorLote(string loteId) //id del producto
+        {
+            var lote = _context.Lote.Find(loteId);
+
+            if (lote == null)
+            {
+                return new List<PrincipiosActivos>();
+                //return Json(new List<PrincipiosActivos>());
+            }
+            return _context.PrincipiosActivos.Include(p => p.Productos).Where(p => p.Id == lote.ProductoId).ToList();
+            
         }
     }
 }

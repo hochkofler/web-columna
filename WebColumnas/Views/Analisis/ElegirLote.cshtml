@@ -1,13 +1,18 @@
-﻿@model List<Lote>
-
-@using (Html.BeginForm())
-{
-    <h2>Elegir Lote</h2>
-    <select name="idLote">
-        @foreach (var lote in Model)
-        {
-            <option value="@lote.LoteID">@lote.LoteID</option>
-        }
-    </select>
-    <button type="submit">Continuar</button>
+﻿@model List<WebColumnas.Models.Lote>
+@{
+    ViewData["Title"] = "Elegir lote";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h1>Elegir Lote</h1>
+
+<hr />
+
+<form asp-action="ElegirLote" methid="post">
+    <div class="input-group mb-4">
+        <select class="form-select form-control" name="IdLote" asp-items="@(new SelectList(Model, "LoteID", "LoteID"))">
+            <option value="">Seleccione un lote</option>
+        </select>
+        <button class="btn btn-outline-secondary" type="submit">Continuar</button>
+    </div>
+</form>

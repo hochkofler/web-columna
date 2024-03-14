@@ -7,5 +7,6 @@
 
         public List<Producto> Productos { get; } = [];
         public List<ProductosPrincipios> ProductosPrincipios { get; } = [];
+        public List<Analisis> Analisis { get; set; } = [];
     }
 }

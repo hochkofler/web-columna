@@ -17,10 +17,25 @@ namespace WebColumnas.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.2")
+                .HasAnnotation("ProductVersion", "8.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("AnalisisPrincipiosActivos", b =>
+                {
+                    b.Property<int>("AnalisisId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PrincipiosActivosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AnalisisId", "PrincipiosActivosId");
+
+                    b.HasIndex("PrincipiosActivosId");
+
+                    b.ToTable("AnalisisPrincipiosActivos");
+                });
 
             modelBuilder.Entity("ColumnaFaseMovil", b =>
                 {
@@ -262,10 +277,8 @@ namespace WebColumnas.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ColumnaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ColumnasColumnaId")
+                    b.Property<string>("ColumnaId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Comentario")
@@ -298,7 +311,7 @@ namespace WebColumnas.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ColumnasColumnaId");
+                    b.HasIndex("ColumnaId");
 
                     b.HasIndex("LoteId");
 
@@ -421,16 +434,11 @@ namespace WebColumnas.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AnalisisId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AnalisisId");
 
                     b.ToTable("PrincipiosActivos");
                 });
@@ -493,6 +501,21 @@ namespace WebColumnas.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Proveedor");
+                });
+
+            modelBuilder.Entity("AnalisisPrincipiosActivos", b =>
+                {
+                    b.HasOne("WebColumnas.Models.Analisis", null)
+                        .WithMany()
+                        .HasForeignKey("AnalisisId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebColumnas.Models.PrincipiosActivos", null)
+                        .WithMany()
+                        .HasForeignKey("PrincipiosActivosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ColumnaFaseMovil", b =>
@@ -580,7 +603,9 @@ namespace WebColumnas.Migrations
                 {
                     b.HasOne("WebColumnas.Models.Columna", "Columnas")
                         .WithMany("Analisis")
-                        .HasForeignKey("ColumnasColumnaId");
+                        .HasForeignKey("ColumnaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("WebColumnas.Models.Lote", "Lote")
                         .WithMany()
@@ -626,13 +651,6 @@ namespace WebColumnas.Migrations
                     b.Navigation("Proveedor");
                 });
 
-            modelBuilder.Entity("WebColumnas.Models.PrincipiosActivos", b =>
-                {
-                    b.HasOne("WebColumnas.Models.Analisis", null)
-                        .WithMany("PrincipiosActivos")
-                        .HasForeignKey("AnalisisId");
-                });
-
             modelBuilder.Entity("WebColumnas.Models.ProductosPrincipios", b =>
                 {
                     b.HasOne("WebColumnas.Models.PrincipiosActivos", "PrincipiosActivos")
@@ -647,11 +665,6 @@ namespace WebColumnas.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PrincipiosActivos");
-                });
-
-            modelBuilder.Entity("WebColumnas.Models.Analisis", b =>
-                {
                     b.Navigation("PrincipiosActivos");
                 });
 

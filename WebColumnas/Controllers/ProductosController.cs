@@ -22,6 +22,7 @@ namespace WebColumnas.Controllers
         // GET: Productos
         public async Task<IActionResult> Index()
         {
+            ViewData["Principios"] = new MultiSelectList(await _context.Producto.Include(p => p.PrincipiosActivos).ToListAsync());
             return View(await _context.Producto.ToListAsync());
         }
 

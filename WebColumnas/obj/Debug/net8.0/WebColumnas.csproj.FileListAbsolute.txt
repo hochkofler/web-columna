@@ -1437,3 +1437,5 @@ C:\Cursos\Aspnet\WebColumnas\web-columnas\WebColumnas\bin\Debug\net8.0\Microsoft
 C:\Cursos\Aspnet\WebColumnas\web-columnas\WebColumnas\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\IFA\Desktop\Proyecto\web-columnas\WebColumnas\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\IFA\Desktop\Proyecto\web-columnas\WebColumnas\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\usuario\Documents\ASPNET\web-columnas\WebColumnas\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\usuario\Documents\ASPNET\web-columnas\WebColumnas\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll

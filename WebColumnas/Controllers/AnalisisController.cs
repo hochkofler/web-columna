@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebColumnas.Data;
 using WebColumnas.Models;
+using WebColumnas.Models.ViewModels;
 
 namespace WebColumnas.Controllers
 {
@@ -68,9 +69,10 @@ namespace WebColumnas.Controllers
             {
                 return NotFound();
             }
-            var analisis = new Analisis { LoteId = id };
+            var viewModel = new AnalisisViewModel { LoteId = id };
             ViewData["Principios"] = new MultiSelectList(ObtenerPrincipiosPorLote(id), "Id", "Nombre");
-            return View(analisis);
+            ViewData["Columnas"] = new SelectList(_context.Columna.ToList(),"ColumnaId","ColumnaId");
+            return View(viewModel);
         }
 
         // POST: Analisis1/Create
@@ -78,20 +80,35 @@ namespace WebColumnas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id, Ph,Presion,TiempoCorrida,Flujo,Temperatura,PresionIni,PresionFin,Comentario,LoteId,ColumnaId")] Analisis analisis)
+        public async Task<IActionResult> Create([Bind("Id,Ph,Presion,TiempoCorrida,Flujo,Temperatura,PresionIni,PresionFin,Comentario,LoteId,ColumnaId,PrincipiosIds")] AnalisisViewModel analisisViewMovel)
         {
-            Console.WriteLine(analisis.LoteId);
-            Console.WriteLine(analisis.PrincipiosActivos);
             if (ModelState.IsValid)
             {
+                var principios = _context.PrincipiosActivos.Where(p => analisisViewMovel.PrincipiosIds.Contains(p.Id)).ToList();
+
+                var analisis = new Analisis
+                {
+                    Ph = analisisViewMovel.Ph,
+                    Presion = analisisViewMovel.Presion,
+                    TiempoCorrida = analisisViewMovel.TiempoCorrida,
+                    Flujo = analisisViewMovel.Flujo,
+                    Temperatura = analisisViewMovel.Temperatura,
+                    PresionIni = analisisViewMovel.PresionIni,
+                    PresionFin = analisisViewMovel.PresionFin,
+                    Comentario = analisisViewMovel.Comentario,
+                    LoteId = analisisViewMovel.LoteId,
+                    ColumnaId = analisisViewMovel.ColumnaId,
+                    PrincipiosActivos = principios
+                };
+
                 _context.Add(analisis);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ColumnaId"] = new SelectList(_context.Columna, "ColumnaId", "ColumnaId", analisis.ColumnaId);
-            ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID", analisis.LoteId);
-            ViewData["Principios"] = new MultiSelectList(ObtenerPrincipiosPorLote(analisis.LoteId), "Id", "Nombre",analisis.PrincipiosActivos);
-            return View(analisis);
+            ViewData["Columnas"] = new SelectList(_context.Columna, "ColumnaId", "ColumnaId", analisisViewMovel.ColumnaId);
+            ViewData["LoteId"] = new SelectList(_context.Lote, "LoteID", "LoteID", analisisViewMovel.LoteId);
+            ViewData["Principios"] = new MultiSelectList(ObtenerPrincipiosPorLote(analisisViewMovel.LoteId), "Id", "Nombre", analisisViewMovel.PrincipiosIds);
+            return View(analisisViewMovel);
         }
 
         // GET: Analisis/Edit/5

@@ -1,4 +1,4 @@
-﻿@model WebColumnas.Models.Analisis
+﻿@model WebColumnas.Models.ViewModels.AnalisisViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -13,16 +13,20 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @Html.HiddenFor(model => model.LoteId)
             <div class="form-group">
-                <label asp-for="PrincipiosActivos" class="control-label"></label>
+                <label asp-for="PrincipiosIds" class="control-label"></label>
                 <br />
-                <select asp-for="PrincipiosActivos" class="form-control" asp-items="ViewBag.Principios">
+                
+                <select asp-for="PrincipiosIds" class="form-control" multiple asp-items="ViewBag.Principios">
                 </select>
             </div>
             <div class="form-group">
                 <label asp-for="ColumnaId" class="control-label"></label>
-                <input asp-for="ColumnaId" class="form-control" />
-                <span asp-validation-for="ColumnaId" class="text-danger"></span>
+                <br />
+
+                <select asp-for="ColumnaId" class="form-control" asp-items="ViewBag.Columnas">
+                </select>
             </div>
+            
             <div class="form-group">
                 <label asp-for="Ph" class="control-label"></label>
                 <input asp-for="Ph" class="form-control" />

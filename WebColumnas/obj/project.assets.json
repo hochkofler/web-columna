@@ -9033,19 +9033,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\IFA\\.nuget\\packages\\": {}
+    "C:\\Users\\usuario\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\WebColumnas.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\Documents\\ASPNET\\web-columnas\\WebColumnas\\WebColumnas.csproj",
       "projectName": "WebColumnas",
-      "projectPath": "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\WebColumnas.csproj",
-      "packagesPath": "C:\\Users\\IFA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\IFA\\Desktop\\Proyecto\\web-columnas\\WebColumnas\\obj\\",
+      "projectPath": "C:\\Users\\usuario\\Documents\\ASPNET\\web-columnas\\WebColumnas\\WebColumnas.csproj",
+      "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\usuario\\Documents\\ASPNET\\web-columnas\\WebColumnas\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\IFA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

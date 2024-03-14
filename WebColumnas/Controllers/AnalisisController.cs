@@ -189,14 +189,14 @@ namespace WebColumnas.Controllers
         
         public List<PrincipiosActivos> ObtenerPrincipiosPorLote(string loteId) //id del producto
         {
-            var lote = _context.Lote.Find(loteId);
+            var lote = _context.Lote.Include(l => l.Producto).FirstOrDefault(l => l.LoteID == loteId);
 
-            if (lote == null)
+            if (lote == null || lote.Producto == null)
             {
                 return new List<PrincipiosActivos>();
                 //return Json(new List<PrincipiosActivos>());
             }
-            return _context.PrincipiosActivos.Include(p => p.Productos).Where(p => p.Id == lote.ProductoId).ToList();
+            return _context.PrincipiosActivos.Where(p => p.Productos.Any(p => p.Id == lote.ProductoId)).ToList();
             
         }
     }
